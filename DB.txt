@@ -35,7 +35,6 @@ CREATE TABLE `diary` (
 ) 
 
 -- 명언
-
 USE souldiary;
 
 CREATE TABLE `quotes` (
