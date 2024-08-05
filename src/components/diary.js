@@ -126,7 +126,7 @@ const Diary = () => {
                             </tr>
                         ))}
                     </tbody>
-                </table> /// @@@@@@ 
+                </table> 
                 {quote && (
                     <div className="quote-container mt-4">
                         <blockquote className="blockquote text-center">
@@ -135,7 +135,7 @@ const Diary = () => {
                         </blockquote>
                     </div>
                 )} 
-            </div> /// @@@@@@ 
+            </div> 
         </div>
     );
 };

@@ -9,14 +9,6 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`)
 ) 
 
-CREATE TABLE `stickers` (
-  `sticker_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `image_url` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`sticker_id`)
-) 
-
 CREATE TABLE `calendar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) NOT NULL,
@@ -28,16 +20,6 @@ CREATE TABLE `calendar` (
   KEY `sticker_id` (`sticker_id`),
   CONSTRAINT `calendar_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
   CONSTRAINT `calendar_ibfk_2` FOREIGN KEY (`sticker_id`) REFERENCES `stickers` (`sticker_id`)
-) 
-
-CREATE TABLE `user_stickers` (
-  `user_id` varchar(255) NOT NULL,
-  `sticker_id` int NOT NULL,
-  `purchase_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user_id`,`sticker_id`),
-  KEY `sticker_id` (`sticker_id`),
-  CONSTRAINT `user_stickers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `user_stickers_ibfk_2` FOREIGN KEY (`sticker_id`) REFERENCES `stickers` (`sticker_id`)
 ) 
 
 CREATE TABLE `diary` (
@@ -52,8 +34,18 @@ CREATE TABLE `diary` (
   CONSTRAINT `diary_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE
 ) 
 
--- 사진저장
+-- 명언
+
 USE souldiary;
 
-ALTER TABLE `user`
-ADD COLUMN `profile_picture` VARCHAR(255);
+CREATE TABLE `quotes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `text` varchar(255) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+INSERT INTO quotes (text, author) VALUES
+('Life is what happens when you\'re busy making other plans.', 'John Lennon'),
+('The purpose of our lives is to be happy.', 'Dalai Lama'),
+('Get busy living or get busy dying.', 'Stephen King');
