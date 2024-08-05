@@ -301,7 +301,7 @@ app.post('/upload-profile-picture', authenticateToken, upload.single('profilePic
 });
 
 
-// @@@@@@ 
+/// @@@@@@ 
 // 명언 랜덤 조회 엔드포인트
 app.get('/random-quote', async (req, res) => {
   try {
@@ -315,7 +315,7 @@ app.get('/random-quote', async (req, res) => {
     res.status(500).json({ isSuccess: false, message: '서버 오류' });
   }
 });
-
+/// @@@@@@ 
 
 // 서버 실행
 app.listen(port, () => {

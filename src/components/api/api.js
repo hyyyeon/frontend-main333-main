@@ -1,6 +1,5 @@
 // api.js
 
-
 import axios from 'axios';
 
 // 기본 API URL
@@ -156,6 +155,7 @@ export const uploadProfilePicture = async (formData, token) => {
   }
 };
 
+/// @@@@@@ 
 // 무작위 인용문 가져오기
 export const fetchRandomQuote = async () => {
   try {
@@ -165,3 +165,4 @@ export const fetchRandomQuote = async () => {
     handleError('무작위 인용문 가져오는 중 오류가 발생했습니다.', error);
   }
 };
+/// @@@@@@ 

@@ -16,7 +16,7 @@ const formatDate = (dateString) => {
 
 const Diary = () => {
     const [diaries, setDiaries] = useState([]);
-    const [quote, setQuote] = useState(null);
+    const [quote, setQuote] = useState(null); /// @@@@@@ 
     const token = localStorage.getItem('token'); // 저장된 JWT 토큰 가져오기
 
     const fetchDiaries = useCallback(async () => {
@@ -38,6 +38,7 @@ const Diary = () => {
         }
     }, [token]);
 
+/// @@@@@@ 
     const fetchRandomQuote = useCallback(async () => {
         try {
             const response = await fetch('http://localhost:3011/random-quote');
@@ -51,11 +52,12 @@ const Diary = () => {
             console.error('Error fetching random quote:', error);
         }
     }, []);
+/// @@@@@@ 
 
     useEffect(() => {
         fetchDiaries();
-        fetchRandomQuote();
-    }, [fetchDiaries, fetchRandomQuote]);
+        fetchRandomQuote(); /// @@@@@@ 
+    }, [fetchDiaries, fetchRandomQuote]); /// @@@@@@ 
 
     const handleDelete = async (id) => {
         try {
@@ -124,7 +126,7 @@ const Diary = () => {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table> /// @@@@@@ 
                 {quote && (
                     <div className="quote-container mt-4">
                         <blockquote className="blockquote text-center">
@@ -132,8 +134,8 @@ const Diary = () => {
                             {quote.author && <footer className="blockquote-footer">{quote.author}</footer>}
                         </blockquote>
                     </div>
-                )}
-            </div>
+                )} 
+            </div> /// @@@@@@ 
         </div>
     );
 };
